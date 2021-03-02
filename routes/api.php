@@ -20,9 +20,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::group(['prefix' => 'advers'], function () {
-    Route::post('/list', 'AdversController@list'); // Ok
-    Route::post('/show', 'AdversController@showForApi'); // Ok
-    Route::post('/add', 'AdversController@add'); // Ok
-    Route::post('/update', 'AdversController@updateForApi'); // Ok
-    Route::post('/delete', 'AdversController@deleteForApi'); // Ok
+    Route::post('/list', 'Api\AdversController@list'); // Ok
+    Route::post('/show', 'Api\AdversController@show'); // Ok
+    Route::post('/add', 'Api\AdversController@add'); // Ok
+    Route::post('/update', 'Api\AdversController@update'); // Ok
+    Route::post('/delete', 'Api\AdversController@delete'); // Ok
 });

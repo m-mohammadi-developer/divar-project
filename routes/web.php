@@ -11,14 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-use App\User;
-use App\Role;
-Route::get('/user/create', function () {
-    $user = User::findOrFail(1);
+Route::get('/home', 'HomeController@index')->name('home');
 
-    $user->role()->save(new Role(['name' => 'admin']));
-});
+
+Route::group(['prefix' => 'dashboard'], ['middleware' => 'IsAdmin', function () {
+    Route::post('/list', 'dashboard\AdversController@list'); // 
+    Route::post('/show', 'dashboard\AdversController@show'); // 
+    Route::post('/add', 'dashboard\AdversController@add'); // 
+    Route::post('/update', 'dashboard\AdversController@update'); // 
+    Route::post('/delete', 'dashboard\AdversController@delete'); // 
+}]);

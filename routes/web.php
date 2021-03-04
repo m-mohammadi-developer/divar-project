@@ -32,3 +32,7 @@ Route::get('/dashboard/adverses', "Dashboard\AdversController@index")->middlewar
 Route::get('/dashboard/contacts', "Dashboard\DashboardController@contacts")->middleware('admin');
 
 
+Route::get('/admin/advers', function () {
+    $page = 'advers';
+    return view('dashboard.main', compact('page'));
+});

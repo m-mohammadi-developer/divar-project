@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Role;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -64,19 +63,10 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        
-        $user = User::create([
+        return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-        if (!$user) {
-            return false;
-        }
-        $role = new Role(['name' => 'regular']);
-        if (!$user->role()->save($role)) {
-            return false;
-        }
-        return $user;
     }
 }

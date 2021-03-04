@@ -11,14 +11,24 @@
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::group(['prefix' => 'dashboard'], ['middleware' => 'IsAdmin', function () {
-    Route::post('/list', 'dashboard\AdversController@list'); // 
-    Route::post('/show', 'dashboard\AdversController@show'); // 
-    Route::post('/add', 'dashboard\AdversController@add'); // 
-    Route::post('/update', 'dashboard\AdversController@update'); // 
-    Route::post('/delete', 'dashboard\AdversController@delete'); // 
-}]);
+
+Route::resource('advers', 'Dasboard\AdversController');
+
+
+
+Route::get('/dashboard/', "Dashboard\DashboardController@index")->middleware('admin');
+Route::get('/dashboard/categories', "Dashboard\DashboardController@categories")->middleware('admin');
+Route::get('/dashboard/users', "Dashboard\DashboardController@users")->middleware('admin');
+Route::get('/dashboard/adverses', "Dashboard\AdversController@index")->middleware('admin');
+Route::get('/dashboard/contacts', "Dashboard\DashboardController@contacts")->middleware('admin');
+
+

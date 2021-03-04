@@ -12,4 +12,15 @@ class Advers extends Model
     ];
     
 
+
+    // public function adverses(){
+    //     return Advers::all();
+    // }
+
+    // public function adversByUserId($user_id) {
+    //     return Advers::where('user_id', $user_id)->all();
+    // }
+
+
+
 }

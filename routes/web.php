@@ -1,15 +1,6 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -38,8 +29,24 @@ Route::get('dashboard', function () {
     return view('dashboard.main', compact('page'));
 });
 /*********************************** User Routes  /************************************/
-Route::get('/dashboard/users', 'Dashboard\UserController@index')->name('dashboard.users')->middleware('admin');
-Route::get('/dashboard/users/edit/{id}', 'Dashboard\UserController@edit')->name('dashboard.users.edit')->middleware('admin');
-Route::post('/dashboard/users/update/{id}', 'Dashboard\UserController@update')->name('dashboard.users.update')->middleware('admin');
-Route::get('/dashboard/users/delete/{id}', 'Dashboard\UserController@destroy')->name('dashboard.users.delete')->middleware('admin');
+
+Route::get('/dashboard/users', 'Dashboard\UserController@index')
+    ->name('dashboard.users')
+    ->middleware('admin');
+
+Route::get('/dashboard/users/edit/{id}', 'Dashboard\UserController@edit')
+    ->name('dashboard.users.edit')
+    ->middleware('admin');
+
+Route::post('/dashboard/users/update/{id}', 'Dashboard\UserController@update')
+    ->name('dashboard.users.update')
+    ->middleware('admin');
+
+Route::post('/dashboard/users/update-password/{id}', 'Dashboard\UserController@updatePassword')
+    ->name('dashboard.users.update-pass')
+    ->middleware('admin');
+
+Route::get('/dashboard/users/delete/{id}', 'Dashboard\UserController@destroy')
+    ->name('dashboard.users.delete')
+    ->middleware('admin');
 

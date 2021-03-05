@@ -54,6 +54,8 @@
             </div>
             <!--end::Toolbar-->
         </div>
+        
+        
         <!--end::Card header-->
         <!--begin::Card body-->
         {{-- {{dd(route('dashboard.users')) }} --}}
@@ -113,7 +115,7 @@
                                         <div class="col-3"></div>
                                         <div class="col-9">
                                             <input type="submit" class="btn btn-light-info font-weight-bold" value="ذخیره تغییرات">
-                                            <a href="#" class="btn btn-clean font-weight-bold">لغو</a>
+                                            <a href="{{ route('dashboard.users') }}" class="btn btn-clean font-weight-bold">لغو</a>
                                         </div>
                                     </div>
                                 </div>
@@ -138,8 +140,7 @@
                                             <div class="alert alert-custom alert-light-danger fade show py-4" role="alert">
                                                 <div class="alert-icon"><i class="flaticon-warning"></i></div>
                                                 <div class="alert-text font-weight-bold">
-                                                    رمزهای عبور کاربر را پیکربندی کنید تا به صورت دوره ای منقضی شود.<br>
-                                                    یا ممکن است آنها سهواً از سیستم قفل شوند, یا ممکن است آنها سهواً از سیستم قفل شوند!
+                                                    لطفا رمز عبور محکم و مطمئن وارد کنید
                                                 </div>
                                                 <div class="alert-close">
                                                     <button type="submit" class="close" data-dismiss="alert" aria-label="نزدیک">
@@ -156,7 +157,7 @@
                                     <div class="form-group row">
                                         <label class="col-form-label col-3 text-lg-right text-left">کلمه عبور جدید</label>
                                         <div class="col-9">
-                                            <input class="form-control form-control-lg form-control-solid" type="password">
+                                            <input class="form-control form-control-lg form-control-solid" type="password" name="user_pass">
                                         </div>
                                     </div>
                                     <!--end::گروه-->
@@ -164,7 +165,7 @@
                                     <div class="form-group row">
                                         <label class="col-form-label col-3 text-lg-right text-left">تأیید کنید کلمه عبور</label>
                                         <div class="col-9">
-                                            <input class="form-control form-control-lg form-control-solid" type="password">
+                                            <input class="form-control form-control-lg form-control-solid" type="password" name="user_pass_confirm">
                                         </div>
                                     </div>
                                     <!--end::گروه-->
@@ -181,8 +182,8 @@
                                     <div class="row">
                                         <div class="col-3"></div>
                                         <div class="col-9">
-                                            <button type="submit" class="btn btn-light-primary font-weight-bold" name="save">ویرایش رمز</button>
-                                            <a href="#" class="btn btn-clean font-weight-bold">لغو</a>
+                                            <button type="submit" class="btn btn-light-primary font-weight-bold" name="action" value="update_password">ویرایش رمز</button>
+                                            <a href="{{ route('dashboard.users') }}" class="btn btn-clean font-weight-bold">لغو</a>
                                         </div>
                                     </div>
                                 </div>

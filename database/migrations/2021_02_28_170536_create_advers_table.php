@@ -20,6 +20,8 @@ class CreateAdversTable extends Migration
             $table->decimal('price');
             $table->integer('user_id');
             $table->integer('category_id');
+            $table->string('meta_keys')->nullable();
+            $table->text('meta_description')->nullable();
             $table->boolean('is_confirmed');
             $table->timestamps();
         });
